@@ -1,0 +1,18 @@
+# spring.application.name=microservice-eureka
+server:
+  port: 8761
+spring:
+  application:
+    name: msvc-eureka
+  # porque no esta configurado el service de Config usaremos la siguiente linea
+  # tener en cuenta los espacios ya que genera error al agregar o quitar
+  config:
+    import: optional:configserver:http://localhost:8888
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server-url:
+    defaultZone: http://localhost:${server.port}/eureka/
