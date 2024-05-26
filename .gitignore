@@ -1,0 +1,52 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+
+# Ignorar la carpeta de configuración de IntelliJ IDEA
+.idea/
+
+# Ignorar compilaciones de Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignorar archivos de Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Ignorar archivos de Gradle
+.gradle/
+build/
+
+# Ignorar archivos de logs
+*.log
+
+# Ignorar archivos temporales y de sistema
+*.tmp
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Ignorar configuraciones del sistema operativo
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Ignorar configuraciones del editor
+*.idea/
+*.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Ignorar archivos generados por IDEs
+*.project
+*.classpath
+.settings/
+bin/
