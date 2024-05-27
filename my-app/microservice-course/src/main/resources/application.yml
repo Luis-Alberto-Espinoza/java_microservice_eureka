@@ -5,7 +5,7 @@ spring:
     name: msvc_course
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://${_HOST}:5432/cursobd
+    url: jdbc:postgresql://localhost:5432/cursobd
     username: ${POSTGRE_USER}
     password: ${POSTGRE_PASSWORD}
   jpa:
@@ -15,10 +15,10 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   # Las siguientes 2 lineas estan porque ahun no esta configurado el microserviceConfig
   config:
-    import: optional:configserver:http://${_HOST}:8888
+    import: optional:configserver:http://localhost:8888
 eureka:
   instance:
-    hostname: ${_HOST}
+    hostname: localhost
   client:
     service-url:
-      defaultZone: http://${_HOST}:8761/eureka
+      defaultZone: http://localhost:8761/eureka
