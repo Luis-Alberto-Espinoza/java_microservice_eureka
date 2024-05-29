@@ -1,24 +1,6 @@
-server:
-  port: 9090
 spring:
   application:
-    name: msvc_course
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/cursobd
-    username: ${POSTGRE_USER}
-    password: ${POSTGRE_PASSWORD}
-  jpa:
-    hibernate:
-      ddl-auto: create
-    database: postgresql
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
-  # Las siguientes 2 lineas estan porque ahun no esta configurado el microserviceConfig
+    name: msvc-course
+
   config:
     import: optional:configserver:http://localhost:8888
-eureka:
-  instance:
-    hostname: localhost
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka

@@ -1,25 +1,6 @@
-server:
-  port: 8090
 spring:
   application:
-    name: microservice-student
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_HOST}:${MYSQL_PORT}/studentdb
-    username: ${MYSQL_USER}
-    password: ${MYSQL_PASSWORD}
-  jpa:
-    hibernate:
-      ddl-auto: create
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQL8Dialect
-  # Las siguientes 2 lineas estan porque ahun no esta configurado el microserviceConfig
-  config:
-    import: optional:configserver:http://${MYSQL_HOST}:8888
+    name: msvc-student
 
-eureka:
-  instance:
-    hostname: ${MYSQL_HOST}
-  client:
-    service-url:
-      defaultZone: http://${MYSQL_HOST}:8761/eureka
+  config:
+    import: optional:configserver:http://localhost:8888
