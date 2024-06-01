@@ -1,6 +1,6 @@
 ### Inicio
 
-![imagen](./imageGeneral00.png)
+![imagen](./imagenes/imageGeneral00.png)
 ## Iniciar Proyecto Padre
 
 ### 1. Crear carpeta contenedora
@@ -40,38 +40,37 @@ Ubícarce en la carpeta contenedora del proyecto, pegar y modificar el comando s
 ### 6. Modificar el archivo `pom.xml`
 
 - Cambiar la versión de Java a 17.
-- Agregar lo siguiente en la sección `build`:
+  - Agregar lo siguiente en la sección `build`:
 
-  ```xml
-  <build>
+```xml
+<build>
     <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-maven-plugin</artifactId>
-          <version>3.2.5</version>
-        </plugin>
-      </plugins>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.2.5</version>
+            </plugin>
+        </plugins>
     </pluginManagement>
-  </build>
-  ```
+</build>
+```
 - Agregar lo siguiente en la sección `dependencies`:
 
-  ```xml
-  <dependencies>
+```xml
+<dependencies>
     <dependency>
-      <groupId>org.projectlombok</groupId>
-      <artifactId>lombok</artifactId>
-      <version>1.18.28</version>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>1.18.28</version>
     </dependency>
-  </dependencies>
-  <packaging>pom</packaging>
-  ```
+</dependencies>
+```
 - Debajo de la etiqueta `<name>my-app</name>`, agregar lo siguiente para especificar que este proyecto será un proyecto Padre:
 
-  ```xml
+```sh
   <packaging>pom</packaging>
-  ```
+```
 - Para terminar de especificar que este `pom.xml` será el contenedor de los subproyectos, agrega lo siguiente debajo de la etiqueta `modelVersion` y encima de la etiqueta `groupId`:
 
   ```xml
@@ -84,7 +83,7 @@ Ubícarce en la carpeta contenedora del proyecto, pegar y modificar el comando s
 
 ### Versión 01 del `pom.xml` general
 
-```xml
+```sh
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -151,42 +150,34 @@ URL: [Spring Initializr](https://start.spring.io/)
 
 ### 3. Descargar la solución, descomprimir y pegar la carpeta resultante en la carpeta raíz del proyecto padre
 
-![imagen](./imagenes/Gateway_en_padre.png)
+![imagen](./imagenes/Gateway_en _padre.png)
 
 ### 4. Modificar el `pom.xml` del Gateway
 
 - Del `pom.xml` del proyecto padre, copiar las siguientes líneas y pegarlas en el `pom.xml` del Gateway, reemplazando todo el contenido de la etiqueta `<parent>`:
 
-  ```xml
-  <groupId>com.mycompany.app</groupId>
-  <artifactId>my-app</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  ```
+```xml
+<parent>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</parent>
+```
 
 ### 5. Agregar el proyecto hijo como módulo en el `pom.xml` del padre
 
 - Agregar la siguiente línea por encima de la etiqueta `<properties>`:
 
-  ```xml
-  <modules>
-    <module>microservice-gateway</module>
-  </modules>
-  ```
+```sh
+<modules>
+  <module>microservice-gateway</module>
+</modules>
+```
 
 Recarga Maven para confirmar y actualizar las modificaciones. La siguiente imagen muestra claramente que el proyecto ha sido anexado exitosamente al árbol de archivos del IDE.
-/*
 
+![imagen](./imagenes/gateway_anexado_ok.png)
 
-
-
-iamagen!!!!!!
-./imagenes/eureka_anexado_ok.png)
-
-
-
-
-
-*/
 ---
 
 ## Crear el Segundo Microservicio: Eureka
@@ -211,21 +202,21 @@ URL: [Spring Initializr](https://start.spring.io/)
 
 - Del `pom.xml` del proyecto padre, copiar las siguientes líneas y pegarlas en el `pom.xml` del Eureka, reemplazando todo el contenido de la etiqueta `<parent>`:
 
-  ```xml
+```sh
   <groupId>com.mycompany.app</groupId>
   <artifactId>my-app</artifactId>
   <version>1.0-SNAPSHOT</version>
-  ```
+```
 
 ### 5. Agregar el proyecto hijo como módulo en el `pom.xml` del padre
 
 - Agregar la siguiente línea por encima de la etiqueta `<properties>`:
 
-  ```xml
+```sh
   <modules>
     <module>microservice-eureka</module>
   </modules>
-  ```
+```
 
 Recarga Maven para confirmar y actualizar las modificaciones. La siguiente imagen muestra claramente que el proyecto ha sido anexado exitosamente al árbol de archivos del IDE.
 
@@ -247,17 +238,17 @@ URL: [Spring Initializr](https://start.spring.io/)
 
 ### 3. Descargar la solución, descomprimir y pegar la carpeta resultante en la carpeta raíz del proyecto padre
 
-![vista de paquetes agregado configuración](./imagenes/config_en_padre.png)
+![vista de paquetes agregado configuración](./imagenes/Config_en_padre.png)
 
 ### 4. Modificar el `pom.xml` del ConfigServer
 
 - Del `pom.xml` del proyecto padre, copiar las siguientes líneas y pegarlas en el `pom.xml` del ConfigServer, reemplazando todo el contenido de la etiqueta `<parent>`:
 
-  ```xml
-  <groupId>com.mycompany.app</groupId>
-  <artifactId>my-app</artifactId>
-  <version>1.0-SNAPSHOT</version>
-  ```
+```sh
+<groupId>com.mycompany.app</groupId>
+<artifactId>my-app</artifactId>
+<version>1.0-SNAPSHOT</version>
+```
 
 ### 5. Agregar el proyecto hijo como módulo en el `pom.xml` del padre
 
@@ -383,9 +374,11 @@ eureka:
 4. Reemplaza las siguientes líneas en el archivo `pom.xml` del microservicio de estudiantes para que reconozca al proyecto principal como su padre:
 
 ```xml
-<groupId>com.mycompany.app</groupId>
-<artifactId>my-app</artifactId>
-<version>1.0-SNAPSHOT</version>
+<parent>
+    <groupId>com.mycompany.app</groupId>
+    <artifactId>my-app</artifactId>
+    <version>1.0-SNAPSHOT</version>
+</parent>
 ```
 
 5. En el `pom.xml` del proyecto padre, agrega el nuevo módulo:
