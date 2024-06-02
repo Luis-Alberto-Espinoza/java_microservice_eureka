@@ -9,6 +9,6 @@ import java.util.List;
 
 @FeignClient(name ="microservice-student", url = "localhost:8080/api/student")
 public interface StudentClient {
-    @GetMapping("/search-my-course/{idCourse}")
+    @GetMapping("/search-by-course/{idCourse}")
     List<StudentDTO> finAllStudentByCourse(@PathVariable Long idCourse);
 }
